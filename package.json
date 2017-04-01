@@ -1,0 +1,17 @@
+{
+  "name": "chrome2gif",
+  "version": "0.0.1",
+  "description": "Use Chrome to turn pages and animations into animated GIFs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Cooper",
+  "license": "MIT",
+  "dependencies": {
+    "chrome-remote-interface": "^0.18.0",
+    "gifencoder": "^1.0.6",
+    "microtime": "^2.1.2",
+    "png-js": "^0.1.1"
+  }
+}
