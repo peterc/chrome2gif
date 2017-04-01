@@ -10,10 +10,6 @@ const PNG = require('png-js');
 const GIFEncoder = require('gifencoder');
 
 module.exports = (url, width, height, totalTime, frameCallback, completedCallback) => {
-  // No URL? Let's use Homer retreating into a bush
-  if (!(typeof url === 'string'))
-    url = 'http://www.reactiongifs.com/r/2012/06/homer_lurking.gif';
-
   // Run for a second by default
   if (!(typeof totalTime === 'number'))
     totalTime = 1000;
@@ -75,8 +71,10 @@ module.exports = (url, width, height, totalTime, frameCallback, completedCallbac
 
 };
 
-if (typeof process.argv[2] !== 'undefined') {
-  console.log(process.argv[2]);
+if (require.main === module) {
+  // No URL? Let's use Homer retreating into a bush
+  let url = (typeof process.argv[2] === 'string') ? process.argv[2] : 'http://www.reactiongifs.com/r/2012/06/homer_lurking.gif';
+  console.log(url);
 
   //let frameCallback = (frame) => {
   //  // Just save the PNG data to file for testing purposes
@@ -115,7 +113,7 @@ if (typeof process.argv[2] !== 'undefined') {
     encoder.finish();
   };
 
-  module.exports(process.argv[2], 480, 480, 1000, frameCallback, completedCallback);
+  module.exports(url, 640, 400, 1000, frameCallback, completedCallback);
 }
 
 
